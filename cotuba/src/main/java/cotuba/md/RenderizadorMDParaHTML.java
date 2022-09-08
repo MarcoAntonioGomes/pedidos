@@ -1,11 +1,7 @@
-package cotuba;
+package cotuba.md;
 
-import nl.siegmann.epublib.domain.Resource;
-import nl.siegmann.epublib.service.MediatypeService;
-import org.commonmark.node.AbstractVisitor;
-import org.commonmark.node.Heading;
+import cotuba.domain.Capitulo;
 import org.commonmark.node.Node;
-import org.commonmark.node.Text;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
