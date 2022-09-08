@@ -10,46 +10,60 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class RenderizadorMDParaHTML {
 
     public List<Capitulo> renderiza(Path diretorioDosMD) {
-        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.md");
-        List<Capitulo> capitulos = new ArrayList<>();
-        try (Stream<Path> arquivosMD = Files.list(diretorioDosMD)) {
-            arquivosMD
-                    .filter(matcher::matches)
-                    .sorted()
-                    .forEach(arquivoMD -> {
-                        Parser parser = Parser.builder().build();
-                        Node document = null;
-                        Capitulo capitulo = new Capitulo();
-                        try {
-                            document = parser.parseReader(Files.newBufferedReader(arquivoMD));
-                            document.accept(new DescobrirHeading(capitulo));
-                        } catch (Exception ex) {
-                            throw new IllegalStateException("Erro ao fazer parse do arquivo " + arquivoMD, ex);
-                        }
-
-                        try {
-                            HtmlRenderer renderer = HtmlRenderer.builder().build();
-                            String html = renderer.render(document);
-                            capitulo.setConteudoHTML(html);
-                            capitulos.add(capitulo);
-
-                        } catch (Exception ex) {
-                            throw new IllegalStateException("Erro ao renderizar para HTML o arquivo " + arquivoMD, ex);
-                        }
-                    });
-        } catch (IOException ex) {
-            throw new IllegalStateException("Erro tentando encontrar arquivos .md em " + diretorioDosMD.toAbsolutePath(), ex);
-        }
-
-        return capitulos;
+       return obtemArquivosMD(diretorioDosMD)
+                .stream()
+                .map(arquivoMD ->{
+                    Capitulo capitulo = new Capitulo();
+                    Node document = parseDoMD(arquivoMD, capitulo);
+                    renderizaParaHTML(arquivoMD, capitulo, document);
+                    return capitulo;
+                }).toList();
     }
 
+    private List<Path> obtemArquivosMD(Path diretorioDosMD) {
+        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.md");
+        Stream<Path> arquivosMD = null;
+        try {
+            arquivosMD = Files.list(diretorioDosMD);
+        } catch (IOException e) {
+            System.out.println("Erro ao localizar os arquivos MD");
+        }
+        return  arquivosMD
+            .filter(matcher::matches)
+            .sorted().collect(Collectors.toList());
+    }
+
+
+    private Node parseDoMD(Path arquivoMD, Capitulo capitulo){
+        Parser parser = Parser.builder().build();
+        Node document = null;
+        try {
+            document = parser.parseReader(Files.newBufferedReader(arquivoMD));
+            document.accept(new DescobrirHeading(capitulo));
+        } catch (Exception ex) {
+            throw new IllegalStateException("Erro ao fazer parse do arquivo " + arquivoMD, ex);
+        }
+
+        return  document;
+    }
+
+    private void renderizaParaHTML(Path arquivoMD, Capitulo capitulo, Node document){
+
+        try {
+            HtmlRenderer renderer = HtmlRenderer.builder().build();
+            String html = renderer.render(document);
+            capitulo.setConteudoHTML(html);
+        } catch (Exception ex) {
+            throw new IllegalStateException("Erro ao renderizar para HTML o arquivo " + arquivoMD, ex);
+        }
+
+    }
 
 }
