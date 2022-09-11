@@ -1,11 +1,5 @@
 package cotuba.application;
 
-import cotuba.epub.GeradorEPUB;
-import cotuba.epub.GeradorEPUBImpl;
-import cotuba.md.RenderizadorMDParaHTML;
-import cotuba.pdf.GeradorPDF;
-import cotuba.pdf.GeradorPDFImpl;
-import cotuba.md.RenderizadorMDParaHTMLImpl;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 
