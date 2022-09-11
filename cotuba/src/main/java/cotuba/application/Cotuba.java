@@ -17,7 +17,7 @@ public class Cotuba {
 
     public void executa(String formato, Path diretorioDosMD, Path arquivoDeSaida){
 
-        RenderizadorMDParaHTML renderizador = new RenderizadorMDParaHTMLImpl();
+        RenderizadorMDParaHTML renderizador = RenderizadorMDParaHTML.cria();
         List<Capitulo> capitulos = renderizador.renderiza(diretorioDosMD);
 
 
@@ -28,11 +28,11 @@ public class Cotuba {
 
 
         if ("pdf".equals(formato)) {
-            GeradorPDF geradorPDF = new GeradorPDFImpl();
+            GeradorPDF geradorPDF = GeradorPDF.cria();
             geradorPDF.gera(ebook);
 
         } else if ("epub".equals(formato)) {
-            GeradorEPUB geradorEPUB = new GeradorEPUBImpl();
+            GeradorEPUB geradorEPUB = GeradorEPUB.cria();
             geradorEPUB.gera(ebook);
         } else {
             throw new IllegalArgumentException("Formato do ebook inválido: " + formato);
