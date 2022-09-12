@@ -9,7 +9,5 @@ import java.util.List;
 public interface RenderizadorMDParaHTML {
     List<Capitulo> renderiza(Path diretorioDosMD);
 
-    static RenderizadorMDParaHTML cria(){
-        return new RenderizadorMDParaHTMLComCommonMark();
-    }
+
 }
