@@ -21,13 +21,11 @@ public class Main {
 
             var opcoesCLI = new LeitorOpcoesCLI(args);
 
-            diretorioDosMD = opcoesCLI.getDiretorioDosMD();
-            formato = opcoesCLI.getFormato();
             arquivoDeSaida = opcoesCLI.getArquivoDeSaida();
             modoVerboso = opcoesCLI.isModoVerboso();
 
             var  cotuba = new Cotuba();
-            cotuba.executa(formato, diretorioDosMD, arquivoDeSaida);
+            cotuba.executa(opcoesCLI);
 
             System.out.println("Arquivo gerado com sucesso: " + arquivoDeSaida);
 

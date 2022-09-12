@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
 
-class LeitorOpcoesCLI {
+ class LeitorOpcoesCLI implements cotuba.application.ParametrosCotuba {
 
     Path diretorioDosMD;
     String formato;
@@ -111,14 +111,17 @@ class LeitorOpcoesCLI {
     }
 
 
+    @Override
     public Path getDiretorioDosMD() {
         return diretorioDosMD;
     }
 
+    @Override
     public String getFormato() {
         return formato;
     }
 
+    @Override
     public Path getArquivoDeSaida() {
         return arquivoDeSaida;
     }
