@@ -3,9 +3,8 @@ package cotuba.application;
 
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
-import cotuba.epub.GeradorEPUB;
 import cotuba.md.RenderizadorMDParaHTML;
-import cotuba.pdf.GeradorPDF;
+
 
 import java.nio.file.Path;
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 public class Cotuba {
 
 
-    private GeradorEbook gerador;
+
 
 
     public void executa(ParametrosCotuba parametros){
@@ -33,17 +32,7 @@ public class Cotuba {
         ebook.setArquivoDeSaida(arquivoDeSaida);
         ebook.setCapitulos(capitulos);
 
-
-        if ("pdf".equals(formato)) {
-            gerador = new GeradorPDF();
-
-        } else if ("epub".equals(formato)) {
-            gerador = new GeradorEPUB();
-
-        } else {
-            throw new IllegalArgumentException("Formato do ebook inválido: " + formato);
-        }
-
+        GeradorEbook gerador = GeradorEbook.cria(formato);
         gerador.gera(ebook);
 
     }
