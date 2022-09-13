@@ -18,7 +18,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 @Component
-public class GeradorPDFComIText implements GeradorEbook {
+public class GeradorPDF implements GeradorEbook {
 
 
     @Override
