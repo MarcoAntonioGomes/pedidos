@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
-public class RenderizadorMDParaHTML implements RenderizadorMDParaHTML {
+public class RenderizadorMDParaHTML {
 
-    @Override
+
     public List<Capitulo> renderiza(Path diretorioDosMD) {
        return obtemArquivosMD(diretorioDosMD)
                 .stream()
