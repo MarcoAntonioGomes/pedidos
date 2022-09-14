@@ -3,6 +3,7 @@ package cotuba.application;
 
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
+import cotuba.domain.FormatoEbook;
 import cotuba.md.RenderizadorMDParaHTML;
 
 
@@ -17,7 +18,7 @@ public class Cotuba {
 
     public void executa(ParametrosCotuba parametros){
 
-        String formato = parametros.getFormato();
+       FormatoEbook formato = parametros.getFormato();
         Path diretorioDosMD = parametros.getDiretorioDosMD();
         Path arquivoDeSaida = parametros.getArquivoDeSaida();
 

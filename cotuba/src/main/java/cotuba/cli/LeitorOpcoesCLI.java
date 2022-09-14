@@ -1,5 +1,6 @@
 package cotuba.cli;
 
+import cotuba.domain.FormatoEbook;
 import org.apache.commons.cli.*;
 
 import java.io.File;
@@ -8,14 +9,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
+import java.util.Locale;
 
 
- class LeitorOpcoesCLI implements cotuba.application.ParametrosCotuba {
+class LeitorOpcoesCLI implements cotuba.application.ParametrosCotuba {
 
-    Path diretorioDosMD;
-    String formato;
-    Path arquivoDeSaida;
-    boolean modoVerboso = false;
+     private Path diretorioDosMD;
+     private FormatoEbook formato;
+     private  Path arquivoDeSaida;
+     private boolean modoVerboso = false;
 
     public LeitorOpcoesCLI(String[] args) {
         Options options = criaOpcoes();
@@ -40,7 +42,7 @@ import java.util.Comparator;
         if (nomeDoArquivoDeSaidaDoEbook != null) {
             arquivoDeSaida = Paths.get(nomeDoArquivoDeSaidaDoEbook);
         } else {
-            arquivoDeSaida = Paths.get("book." + formato.toLowerCase());
+            arquivoDeSaida = Paths.get("book." + formato.name().toLowerCase());
         }
         if (Files.isDirectory(arquivoDeSaida)) {
             // deleta arquivos do diretório recursivamente
@@ -55,9 +57,9 @@ import java.util.Comparator;
         String nomeDoFormatoDoEbook = cmd.getOptionValue("format");
 
         if (nomeDoFormatoDoEbook != null) {
-            formato = nomeDoFormatoDoEbook.toLowerCase();
+            formato = FormatoEbook.valueOf(nomeDoFormatoDoEbook.toUpperCase());
         } else {
-            formato = "pdf";
+            formato = FormatoEbook.PDF;
         }
     }
 
@@ -118,7 +120,7 @@ import java.util.Comparator;
     }
 
     @Override
-    public String getFormato() {
+    public FormatoEbook getFormato() {
         return formato;
     }
 
