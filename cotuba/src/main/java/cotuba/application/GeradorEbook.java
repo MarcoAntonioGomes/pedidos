@@ -11,8 +11,6 @@ public interface GeradorEbook {
 
     boolean accept(FormatoEbook formatoEbook);
 
-    static GeradorEbook cria(FormatoEbook formato){
-        return formato.getGerador();
-    }
+
 
 }

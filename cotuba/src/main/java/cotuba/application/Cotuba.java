@@ -5,6 +5,7 @@ import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 import cotuba.domain.FormatoEbook;
 import cotuba.md.RenderizadorMDParaHTML;
+import cotuba.plugin.AoFinalizarGeracao;
 import org.springframework.stereotype.Component;
 
 
@@ -46,7 +47,7 @@ public class Cotuba {
                 .orElseThrow(() -> new IllegalArgumentException("Formato do ebook inválido: " + formato));
 
         geradorEbook.gera(ebook);
-
+        AoFinalizarGeracao.gerou(ebook);
 
     }
 
