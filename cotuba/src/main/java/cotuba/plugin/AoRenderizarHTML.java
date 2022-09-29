@@ -1,6 +1,5 @@
 package cotuba.plugin;
 
-import cotuba.domain.Capitulo;
 
 import java.util.ServiceLoader;
 
@@ -14,7 +13,7 @@ public interface AoRenderizarHTML {
         for(AoRenderizarHTML plugin : ServiceLoader.load(AoRenderizarHTML.class)){
             htmlModificado = plugin.aposRenderizacao(htmlModificado);
         }
-        
+
         return htmlModificado;
     }
 }
