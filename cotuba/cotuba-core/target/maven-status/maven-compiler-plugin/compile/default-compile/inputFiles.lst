@@ -1,0 +1,14 @@
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/application/ParametrosCotuba.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/html/GeradorHTML.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/domain/builder/CapituloBuilder.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/application/Cotuba.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/pdf/GeradorPDF.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/application/GeradorEbook.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/domain/Capitulo.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/plugin/AoRenderizarHTML.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/domain/FormatoEbook.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/md/DescobrirHeading.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/md/RenderizadorMDParaHTML.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/epub/GeradorEPUB.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/domain/Ebook.java
+/mnt/c/Users/marco/Desktop/solid-na-pratica/cotuba/cotuba-core/src/main/java/plugin/AoFinalizarGeracao.java
