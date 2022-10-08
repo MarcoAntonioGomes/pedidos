@@ -1,10 +1,10 @@
 package html;
 
-import plugin.GeradorEbook;
-import domain.Capitulo;
-import domain.Ebook;
-import domain.FormatoEbook;
-import org.springframework.stereotype.Component;
+import cotuba.plugin.GeradorEbook;
+import cotuba.domain.Capitulo;
+import cotuba.domain.Ebook;
+import cotuba.domain.FormatoEbook;
+
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.Normalizer;
 
-@Component
+
 public class GeradorHTML implements GeradorEbook {
 
 

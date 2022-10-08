@@ -11,6 +11,7 @@
         <module name="cotuba-pdf" />
         <module name="cotuba-core" />
         <module name="cotuba-epub" />
+        <module name="cotuba-web" />
       </profile>
     </annotationProcessing>
   </component>

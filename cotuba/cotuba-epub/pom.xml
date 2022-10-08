@@ -15,8 +15,7 @@
         <dependency>
             <groupId>cotuba</groupId>
             <artifactId>cotuba-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>${project.version}</version>
         </dependency>
 
 
