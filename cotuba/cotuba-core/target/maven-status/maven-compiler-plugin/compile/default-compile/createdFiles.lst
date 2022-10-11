@@ -1,12 +1,13 @@
 cotuba/domain/FormatoEbook.class
-cotuba/md/DescobrirHeading.class
 cotuba/application/ParametrosCotuba.class
 cotuba/domain/builder/CapituloBuilder.class
 cotuba/md/RenderizadorMDParaHTML.class
 cotuba/application/Cotuba.class
 cotuba/plugin/GeradorEbook.class
+cotuba/application/RepositorioDeMDs.class
+cotuba/md/DescobrirHeading.class
+module-info.class
 cotuba/domain/Capitulo.class
 cotuba/plugin/AoFinalizarGeracao.class
 cotuba/plugin/AoRenderizarHTML.class
-cotuba/application/RepositorioDeMDs.class
 cotuba/domain/Ebook.class

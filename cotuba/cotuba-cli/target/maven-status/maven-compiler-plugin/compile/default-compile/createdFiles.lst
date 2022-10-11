@@ -1,3 +1,4 @@
+module-info.class
 cli/LeitorOpcoesCLI.class
 cli/Main.class
 cli/MDsDoDiretorio.class
