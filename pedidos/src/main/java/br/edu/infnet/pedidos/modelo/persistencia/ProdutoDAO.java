@@ -18,7 +18,7 @@ public class ProdutoDAO extends JdbcDAO<Produto> {
     }
 
     @Override
-    public List<Cliente> listarTodos() {
+    public List<Produto> listarTodos() {
         return null;
     }
 
@@ -33,7 +33,7 @@ public class ProdutoDAO extends JdbcDAO<Produto> {
     }
 
     @Override
-    public Cliente obter(Long codigo) {
+    public Produto obter(Long codigo) {
         return null;
     }
 }

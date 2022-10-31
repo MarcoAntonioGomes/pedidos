@@ -29,4 +29,8 @@ public class Cliente {
     public void setCodigo(long l) {
         codigo = l;
     }
+
+    public String toString() {
+        return "Cliente: " + nome + " (" + codigo + ")";
+    }
 }

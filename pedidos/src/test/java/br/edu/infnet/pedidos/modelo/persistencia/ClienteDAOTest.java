@@ -19,7 +19,7 @@ import java.util.List;
 public class ClienteDAOTest {
 
     @Before
-    public void before() throws Exception {
+    public void before()  {
 
         ClienteDAO dao = new ClienteDAO();
         Cliente cliente = new Cliente("Marco");
@@ -27,14 +27,14 @@ public class ClienteDAOTest {
     }
 
     @After
-    public void after() throws Exception {
+    public void after() {
     }
 
     /**
      * Method: salvar(Cliente cliente)
      */
     @Test
-    public void testSalvar() throws Exception {
+    public void testSalvar()  {
 
         ClienteDAO clienteDAO = new ClienteDAO();
         Cliente cliente = new Cliente("Marco Gomes");
@@ -44,7 +44,7 @@ public class ClienteDAOTest {
     }
 
     @Test
-    public void testListarTodos() throws Exception {
+    public void testListarTodos()  {
 
         ClienteDAO clienteDAO = new ClienteDAO();
         Cliente cliente = new Cliente("Marco Gomes");
@@ -53,7 +53,7 @@ public class ClienteDAOTest {
     }
 
     @Test
-    public void testUpdate() throws Exception {
+    public void testUpdate() {
 
         ClienteDAO clienteDAO = new ClienteDAO();
         List<Cliente> clientes = clienteDAO.listarTodos();
@@ -64,7 +64,7 @@ public class ClienteDAOTest {
     }
 
     @Test
-    public void testDelete() throws Exception {
+    public void testDelete()  {
 
         ClienteDAO clienteDAO = new ClienteDAO();
         List<Cliente> clientes = clienteDAO.listarTodos();
@@ -74,7 +74,7 @@ public class ClienteDAOTest {
     }
 
     @Test
-    public void testObter() throws SQLException {
+    public void testObter() {
         ClienteDAO clienteDAO = new ClienteDAO();
         List<Cliente> clientes = clienteDAO.listarTodos();
         Cliente cliente = clienteDAO.obter(clientes.get(0).getCodigo());

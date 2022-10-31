@@ -8,11 +8,11 @@ public interface IDAO<T> {
 
     Boolean salvar(T obj);
 
-    List<Cliente> listarTodos();
+    List<T> listarTodos();
 
     Boolean atualizar(T obj);
 
     Boolean excluir(T obj);
 
-    Cliente obter(Long codigo);
+    T obter(Long codigo);
 }
